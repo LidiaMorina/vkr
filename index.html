@@ -8,100 +8,98 @@
 </head>
 <body>
     <form method="POST" action="form.php">
-	<p>URL: <input name="url" type="text"></p>
 	<p>№<input name="id_document" type="text"></p>
-	<p>ФИО<input name="fio" type="text"></p>
 	<h2>ОПЕРАТИВНО - ТАКТИЧЕСКАЯ ХАРАКТЕРИСТИКА</h2>
-        <p>Общие сведения об объекте <input type="text" name="general_info"></p>
-        <p>Данные о пожарной нагрузке<input type="text" name="fire-load-data"></p>
-        <p>Данные о противопожарной защите объекта <input type="text" name="fire_protection"></p>
-        <p>Сведения о коммуникациях объекта<input type="text" name="object_communication"></p>
+        <p>Общие сведения об объекте </p> <textarea required type="text" name="general_info"> </textarea>
+        <p>Данные о пожарной нагрузке</p> <textarea required type="text" name="fire-load-data"> </textarea>
+        <p>Данные о противопожарной защите объекта</p> <textarea required type="text" name="fire_protection"></textarea>
+        <p>Сведения о коммуникациях объекта</p> <textarea type="text" name="object_communication"></textarea>
         <p>Противопожарное водоснабжение </p>
-            <p>Внутреннее противопожарное водоснабжение<input type="text" name="inner-water-supply"></p>
-            <p>Наружное противопожарное водоснабжение<input type="text" name="outer-water-supply"></p>
-            <p>Первичные средства пожаротушения<input type="text" name="primary-fire-extinguishing-means"></p>
-        <p>Охрана и средства связи<input type="text" name="security_communications"></p>
+            <p>Внутреннее противопожарное водоснабжение</p> <textarea type="text" name="inner-water-supply"></textarea>
+            <p>Наружное противопожарное водоснабжение</p> <textarea type="text" name="outer-water-supply"></textarea>
+            <p>Первичные средства пожаротушения</p> <textarea type="text" name="primary-fire-extinguishing-means"></textarea>
+        <p>Охрана и средства связи</p> <textarea type="text" name="security_communications"></textarea>
 		  
 		
 		<h2>ПРОГНОЗ РАЗВИТИЯ ПОЖАРА</h2>
-        <p>Вариант 1 <input type="text" name="variant-1"></p>
-            <p>Линейная скорость горения: V<sub>мин</sub>=<input type="text" name="linear-velocity-var1">м/мин</p>
-            <p>Интенсивность, подачи воды:I=<input type="text" name="intensity-var1">л/(м<sup>2</sup>/с)</p>
-        <p>Вариант 2 <input type="text" name="variant-2"></p>
-            <p>Линейная скорость горения: V<sub>мин</sub>=<input type="text" name="linear-velocity-var2">м/мин</p>
-            <p>Интенсивность, подачи воды:I=<input type="text" name="intensity-var2">л/(м<sup>2</sup>/с)</p>
-        <p>Пути возможного распространения пожара <input type="text" name="fire-propagation-routes"></p>
-        <p>Возможные зоны задымления и прогнозируемая концентрация продуктов горения<input type="text" name="possible-smoke-zones"></p>
+        <h3>Вариант 1 </h3><textarea type="text" name="variant-1"></textarea>
+            <p>Линейная скорость горения: V<sub>мин</sub> = <input type="text" name="linear-velocity-var1" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"> м/мин</p>
+            <p>Интенсивность, подачи воды: I = <input type="text" name="intensity-var1" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"> л/(м<sup>2</sup>/с)</p>
+        <h3>Вариант 2 </h3><textarea type="text" name="variant-2"></textarea>
+            <p>Линейная скорость горения: V<sub>мин</sub> = <input type="text" name="linear-velocity-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"> м/мин</p>
+            <p>Интенсивность, подачи воды: I = <input type="text" name="intensity-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"> л/(м<sup>2</sup>/с)</p>
+        <p>Пути возможного распространения пожара </p><textarea type="text" name="fire-propagation-routes"></textarea>
+        <p>Возможные зоны задымления и прогнозируемая концентрация продуктов горения</p><textarea type="text" name="possible-smoke-zones"></textarea>
 
         <h2>ДЕЙСТВИЯ  ОБСЛУЖИВАЮЩЕГО ПЕРСОНАЛА (РАБОТНИКОВ) ОРГАНИЗАЦИИ ДО ПРИБЫТИЯ ПОЖАРНЫХ ПОДРАЗДЕЛЕНИЙ</h2>
-        <p>Сведения о наличии аварийно-спасательных служб объекта<input type="text" name="emergency-response-information"></p>
+        <p>Сведения о наличии аварийно-спасательных служб объекта</p><textarea type="text" name="emergency-response-information"></textarea>
 
         <h2>ОРГАНИЗАЦИЯ РАБОТ ПО СПАСЕНИЮ ЛЮДЕЙ</h2>
         <p>Сведения о людях, находящихся на объекте</p>
-        <p>В здании <input type="text" name="building"> одновременно могут находиться:</p>
-            <p>В дневное время: <input type="text" name="day">;</p>
-            <p>В ночное время: <input type="text" name="night">;</p>
-        <p>Сведения об эвакуационных путях и выходах из здания<input type="text" name="exit-from-building"></p> 
+        <p>В здании(наименование) <input type="text" name="building"> одновременно могут находиться:</p>
+            <p>В дневное время: </p><textarea type="text" name="day"></textarea>
+            <p>В ночное время: </p><textarea type="text" name="night"></textarea>
+        <p>Сведения об эвакуационных путях и выходах из здания</p><textarea type="text" name="exit-from-building"></textarea>
         
         <h2>Расчет необходимых сил и средств для тушения пожаров и проведения АСР по двум наиболее сложным вариантам развития возможного пожара</h2>
         <h3>Тактический замысел №1</h3>
             <p>Согласно справочных данных:</p>
-                <p>время до сообщения о пожаре: t<sub>сооб.</sub>=<input type="text" name="time-massage-var1">мин</p>
-            <p>Маршрут следования осуществляется по улицам:<input type="text" name="street">;</p>
-        <p>Расчёт сил и средств</p>
+                <p>Время до сообщения о пожаре: t<sub>сооб.</sub> = <input type="text" name="time-massage-var1"> мин</p>
+            <p>Маршрут следования осуществляется по улицам: </p><textarea type="text" name="street"></textarea>
         
+            <p>Расчёт сил и средств</p>
         
             <h4>1. Определим время свободного развития пожара на момент прибытия ПСЧ №4 </h4>
-                <p>t<sub>д.с</sub>= <input type="text" name="formula_t_ds"></p>
-                <p>t<sub>сб.</sub>= <input type="text" name="formula_t_sb"></p>
-                <p>t<sub>сл.</sub>= <input type="text" name="formula_t_sl"></p>
-                <p>t<sub>бр1.</sub>= <input type="text" name="formula_t_br1"></p>
-                <p>L= <input type="text" name="formula_L"></p>
-                <p>V<sub>сл.</sub>= <input type="text" name="formula_Vsl"></p>
+                <p>t<sub>д.с</sub> = <input type="text" name="formula_t_ds" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>t<sub>сб.</sub> = <input type="text"  name="formula_t_sb" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>t<sub>сл.</sub> = <input type="text" name="formula_t_sl" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>t<sub>бр1.</sub> = <input type="text" name="formula_t_br1" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>L = <input type="text" name="formula_L" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>V<sub>сл.</sub> = <input type="text" name="formula_Vsl" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
 
-                <p>t<sub>св.</sub>= <input disabled="disabled" type="text" name="formula_t_sv"> минут</p>
-                <p>t<sub>сл.</sub>= <input disabled="disabled" type="text" name="formula_t_sl"> минут</p>
+                <p>t<sub>св.</sub> = <input disabled="disabled" type="text" name="formula_t_sv"> минут</p>
+                <p>t<sub>сл.</sub> = <input disabled="disabled" type="text" name="formula_t_sl"> минут</p>
 
             <h4>2. Определим радиус пожара к моменту подачи стволов на тушение пожара</h4> 
-                <p>V<sub>л</sub>= <input type="text" name="formula_Vl"></p>
+                <p>V<sub>л</sub> = <input type="text" name="formula_Vl" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
 
-                <p>t<sub>2</sub>= <input disabled="disabled" type="text" name="formula_t2"></p>
-                <p>R<sub>1</sub>= <input disabled="disabled" type="text" name="formula_R1"></p>
+                <p>t<sub>2</sub> = <input disabled="disabled" type="text" name="formula_t2" > мин</p>
+                <p>R<sub>1</sub> = <input disabled="disabled" type="text" name="formula_R1" > м</p>
             
             <h4>3. Определим площадь пожара </h4>
                 <p>путь пройденный огнем(ширина помещения): </p>
-                <p>L= <input type="text" name="formula_L_way"></p>
+                <p>L = <input type="text" name="formula_L_way" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
                 <p>ширина помещения: </p>
-                <p>a= <input type="text" name="formula_a_wight"></p>
+                <p>a = <input type="text" name="formula_a_wight" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
 
-                <p>S<sub>п</sub>= <input disabled="disabled" type="text" name="formula_Sp"></p>
+                <p>S<sub>п</sub> = <input disabled="disabled" type="text" name="formula_Sp"> м<sup>2</sup></p>
             
             <h4>4. Определим площадь тушения пожара </h4>
                 <p>количество направлений подачи стволов: </p>
-                <p>n= <input type="text" name="formula_n"></p>
+                <p>n = <input type="text" name="formula_n" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
                 <p>глубина тушения ручными стволами: </p>
-                <p>h<sub>t</sub>= <input type="text" name="formula_ht"></p>
+                <p>h<sub>t</sub> = <input type="text" name="formula_ht" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
 
-                <p>S<sub>t</sub>= <input disabled="disabled" type="text" name="formula_St"> м<sup>2</sup></p>
+                <p>S<sub>t</sub> = <input disabled="disabled" type="text" name="formula_St"> м<sup>2</sup></p>
 
             <h4>5. Определим требуемый расход воды на тушение пожара</h4>
-                <p>I<sub>тр</sub>= <input type="text" name="formula_Itr"></p>
+                <p>I<sub>тр</sub> = <input type="text" name="formula_Itr" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
 
-                <p>Q<sup>т</sup><sub>тр</sub>= <input disabled="disabled" type="text" name="formula_water-consumption"> л/с</p>
+                <p>Q<sup>т</sup><sub>тр</sub> = <input disabled="disabled" type="text" name="formula_water-consumption"> л/с</p>
 
             <h4>6. Определим требуемое количество стволов «Б» на тушение пожара</h4>
                 <p>расход ствола «Б»: </p>
-                <p>q<sub>ствБ</sub>= <input type="text" name="formula_q_stvB"></p>
+                <p>q<sub>ствБ</sub> = <input type="text" name="formula_q_stvB" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
 
-                <p>N<sup>т</sup><sub>ствБ</sub>= <input disabled="disabled" type="text" name="formula_Nt_stvB"></p>
+                <p>N<sup>т</sup><sub>ствБ</sub> = <input disabled="disabled" type="text" name="formula_Nt_stvB"></p>
 
             <h4>7. Определим фактический расход воды на тушение пожара</h4>
                 <p>количество стволов требуемых для тушения: </p>
-                <p>N<sub>ст т</sub>= <input type="text" name="formula_Nst_t"></p>
+                <p>N<sub>ст т</sub> = <input type="text" name="formula_Nst_t" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
                 <p>расход подаваемых стволов на тушение: </p>
-                <p>q<sup>т</sup><sub>стБ</sub>= <input type="text" name="formula_qt_stB"></p>
+                <p>q<sup>т</sup><sub>стБ</sub> = <input type="text" name="formula_qt_stB" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
 
-                <p>Q<sup>т</sup><sub>факт</sub>= <input disabled="disabled" type="text" name="formula_Qt_fact"> л/с</p>
+                <p>Q<sup>т</sup><sub>факт</sub> = <input disabled="disabled" type="text" name="formula_Qt_fact"> л/с</p>
 
 
             <h4>8. Определим требуемое количество стволов для осуществления защитных действий, исходя из возможной обстановки на пожаре</h4>
@@ -109,21 +107,209 @@
 
 
             <h3>9. Определим фактический расход воды на защиту здания</h3>
-                <p>количество стволов требуемых для защиты: </p>
-                <p>N<sub>ст з</sub>= <input type="text" name="formula_Nst_z"></p>
-                <p>расход подаваемых стволов для защиты: </p>
-                <p>q<sup>з</sup><sub>стБ</sub>= <input type="text" name="formula_Qz_stB"></p>
+                <p>Количество стволов требуемых для защиты: </p>
+                <p>N<sub>ст з</sub> = <input type="text" name="formula_Nst_z" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Расход подаваемых стволов для защиты: </p>
+                <p>q<sup>з</sup><sub>стБ</sub> = <input type="text" name="formula_Qz_stB" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
 
-                <p>Q<sup>з</sup><sub>факт</sub>= <input disabled="disabled" type="text" name="formula_Qz_fact"> л/с</p>
+                <p>Q<sup>з</sup><sub>факт</sub> = <input disabled="disabled" type="text" name="formula_Qz_fact"> л/с</p>
 
             <h3>10. Определим общий расход воды на тушение и защиту здания</h3>
             
-                <p>Q<sub>факт</sub>= <input disabled="disabled" type="text" name="formula_Q_fact"> л/с</p>
+                <p>Q<sub>факт</sub> = <input disabled="disabled" type="text" name="formula_Q_fact"> л/с</p>
+            
+            <h3>11. Проверим обеспеченность объекта водой для целей пожаротушения</h3>
+                <p>ДОДЕЛАТЬ</p>
+                <textarea>
+                        текст
+                </textarea>
 
+            <h3>12. Определим требуемое количество машин с учетом использования насосов на полную тактическую возможность</h3>
+                <p>ДОДЕЛАТЬ</p>
+                <textarea>
+                        текст
+                </textarea>   
 
+            <h3>13. Определим предельное расстояние для подачи воды</h3>
+                <p>Напор на насосе: </p>
+                <p>H<sub>н</sub> = <input type="text" name="formula_Hh" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Напор у разветвления: </p>
+                <p>H<sub>р</sub> = <input type="text" name="formula_Hp" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Высота подъема местности: </p>
+                <p>Z<sub>м</sub> = <input type="text" name="formula_Zm" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Высота подъема ствола: </p>
+                <p>Z<sub>ст</sub> = <input type="text" name="formula_Zst" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Сопротивление одного рукава: </p>
+                <p>S = <input type="text" name="formula_S" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Расход по одной максимально загруженной линии: </p>
+                <p>Q = <input type="text" name="formula_Q" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                
+                <p>L<sub>пр</sub> = <input disabled="disabled" type="text" name="formula_Lpr"> м</p>
+            
+            <h3>14. Определим запас огнетушащих веществ на нужды пожаротушения:</h3>
+
+                <p>V<sub>во</sub> = <input disabled="disabled" type="text" name="formula_Vvo"> л</p>
+
+                <p>Вывод про запах огнетушащих веществ</p><textarea  name = 'conclusion_supplyOfwater' placeholder="вывод" required> </textarea> 
+
+            
+            <h3>15. Определим необходимую численность личного состава:</h3>
+
+                <p>N<sub>гдзс.туш</sub>= <input type="text" name="formula_N_tush" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>гдзс.защ</sub>= <input type="text" name="formula_N_zash" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>гдзс. поиск</sub>= <input type="text" name="formula_N_search" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>рез. гдзс</sub>= <input type="text" name="formula_Nrez_gdzs" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>кпп</sub>= <input type="text" name="formula_N_kpp" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>пб</sub>= <input type="text" name="formula_N_pb" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>разв</sub>= <input type="text" name="formula_N_razv" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>связ</sub>= <input type="text" name="formula_N_sv" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?" ></p>
+                <p>N<sub>вод</sub>= <input type="text" name="formula_N_vod"required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>N<sub>л/с</sub>= <input disabled="disabled" type="text" name="formula_Nls"> человек</p>
+                
+            <h3>16. Определим количество отделений на основных пожарных автомобилях:</h3>
+                <p>N<sub>отд</sub>= <input disabled="disabled" type="text" name="formula_Notd" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"> отделений</p>
+                
+                <p><b>Вывод:</b></p> <textarea name="conclusion" required> </textarea> 
+
+         
                 
 
+
+
+
+<!-- 
+
+
         <h3>Тактический замысел №2</h3>
+            <p>Согласно справочных данных:</p>
+                <p>Время до сообщения о пожаре: t<sub>сооб.</sub> = <input type="text" name="time-massage-var2"> мин</p>
+            <p>Маршрут следования осуществляется по улицам: </p><textarea type="text" name="street-var2"></textarea>
+        
+            <p>Расчёт сил и средств</p>
+        
+            <h4>1. Определим время свободного развития пожара на момент прибытия ПСЧ №4 </h4>
+                <p>t<sub>д.с</sub> = <input type="text" name="formula_t_ds-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>t<sub>сб.</sub> = <input type="text"  name="formula_t_sb-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>t<sub>сл.</sub> = <input type="text" name="formula_t_sl-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>t<sub>бр1.</sub> = <input type="text" name="formula_t_br1-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>L = <input type="text" name="formula_L-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+                <p>V<sub>сл.</sub> = <input type="text" name="formula_Vsl-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+
+                <p>t<sub>св.</sub> = <input disabled="disabled" type="text" name="formula_t_sv-var2"> минут</p>
+                <p>t<sub>сл.</sub> = <input disabled="disabled" type="text" name="formula_t_sl-var2"> минут</p>
+
+            <h4>2. Определим радиус пожара к моменту подачи стволов на тушение пожара</h4> 
+                <p>V<sub>л</sub> = <input type="text" name="formula_Vl-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>t<sub>2</sub> = <input disabled="disabled" type="text" name="formula_t2-var2" > мин</p>
+                <p>R<sub>1</sub> = <input disabled="disabled" type="text" name="formula_R1-var2" > м</p>
+            
+            <h4>3. Определим площадь пожара </h4>
+                <p>путь пройденный огнем(ширина помещения): </p>
+                <p>L = <input type="text" name="formula_L_way-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>ширина помещения: </p>
+                <p>a = <input type="text" name="formula_a_wight-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>S<sub>п</sub> = <input disabled="disabled" type="text" name="formula_Sp-var2"> м<sup>2</sup></p>
+            
+            <h4>4. Определим площадь тушения пожара </h4>
+                <p>количество направлений подачи стволов: </p>
+                <p>n = <input type="text" name="formula_n-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>глубина тушения ручными стволами: </p>
+                <p>h<sub>t</sub> = <input type="text" name="formula_ht-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>S<sub>t</sub> = <input disabled="disabled" type="text" name="formula_St-var2"> м<sup>2</sup></p>
+
+            <h4>5. Определим требуемый расход воды на тушение пожара</h4>
+                <p>I<sub>тр</sub> = <input type="text" name="formula_Itr-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>Q<sup>т</sup><sub>тр</sub> = <input disabled="disabled" type="text" name="formula_water-consumption-var2"> л/с</p>
+
+            <h4>6. Определим требуемое количество стволов «Б» на тушение пожара</h4>
+                <p>расход ствола «Б»: </p>
+                <p>q<sub>ствБ</sub> = <input type="text" name="formula_q_stvB-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>N<sup>т</sup><sub>ствБ</sub> = <input disabled="disabled" type="text" name="formula_Nt_stvB-var2"></p>
+
+            <h4>7. Определим фактический расход воды на тушение пожара</h4>
+                <p>количество стволов требуемых для тушения: </p>
+                <p>N<sub>ст т</sub> = <input type="text" name="formula_Nst_t-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>расход подаваемых стволов на тушение: </p>
+                <p>q<sup>т</sup><sub>стБ</sub> = <input type="text" name="formula_qt_stB-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>Q<sup>т</sup><sub>факт</sub> = <input disabled="disabled" type="text" name="formula_Qt_fact-var2"> л/с</p>
+
+
+            <h4>8. Определим требуемое количество стволов для осуществления защитных действий, исходя из возможной обстановки на пожаре</h4>
+                <p>пока что хз</p>
+
+
+            <h3>9. Определим фактический расход воды на защиту здания</h3>
+                <p>Количество стволов требуемых для защиты: </p>
+                <p>N<sub>ст з</sub> = <input type="text" name="formula_Nst_z-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Расход подаваемых стволов для защиты: </p>
+                <p>q<sup>з</sup><sub>стБ</sub> = <input type="text" name="formula_Qz_stB-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>Q<sup>з</sup><sub>факт</sub> = <input disabled="disabled" type="text" name="formula_Qz_fact-var2"> л/с</p>
+
+            <h3>10. Определим общий расход воды на тушение и защиту здания</h3>
+            
+                <p>Q<sub>факт</sub> = <input disabled="disabled" type="text" name="formula_Q_fact-var2"> л/с</p>
+            
+            <h3>11. Проверим обеспеченность объекта водой для целей пожаротушения</h3>
+                <p>ДОДЕЛАТЬ</p>
+                <textarea>
+                        текст
+                </textarea>
+
+            <h3>12. Определим требуемое количество машин с учетом использования насосов на полную тактическую возможность</h3>
+                <p>ДОДЕЛАТЬ</p>
+                <textarea>
+                        текст
+                </textarea>   
+
+            <h3>13. Определим предельное расстояние для подачи воды</h3>
+                <p>Напор на насосе: </p>
+                <p>H<sub>н</sub> = <input type="text" name="formula_Hh-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Напор у разветвления: </p>
+                <p>H<sub>р</sub> = <input type="text" name="formula_Hp-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Высота подъема местности: </p>
+                <p>Z<sub>м</sub> = <input type="text" name="formula_Zm-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Высота подъема ствола: </p>
+                <p>Z<sub>ст</sub> = <input type="text" name="formula_Zst-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Сопротивление одного рукава: </p>
+                <p>S = <input type="text" name="formula_S-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Расход по одной максимально загруженной линии: </p>
+                <p>Q = <input type="text" name="formula_Q-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                
+                <p>L<sub>пр</sub> = <input disabled="disabled" type="text" name="formula_Lpr-var2"> м</p>
+            
+            <h3>14. Определим запас огнетушащих веществ на нужды пожаротушения:</h3>
+
+                <p>V<sub>во</sub> = <input disabled="disabled" type="text" name="formula_Vvo-var2"> л</p>
+
+                <p>Вывод про запах огнетушащих веществ</p><textarea  name = 'conclusion_supplyOfwater-var2' placeholder="вывод" required> </textarea> 
+
+            
+            <h3>15. Определим необходимую численность личного состава:</h3>
+
+                <p>N<sub>гдзс.туш</sub>= <input type="text" name="formula_N_tush-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>гдзс.защ</sub>= <input type="text" name="formula_N_zash-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>гдзс. поиск</sub>= <input type="text" name="formula_N_search-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>рез. гдзс</sub>= <input type="text" name="formula_Nrez_gdzs-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>кпп</sub>= <input type="text" name="formula_N_kpp-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>пб</sub>= <input type="text" name="formula_N_pb-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>разв</sub>= <input type="text" name="formula_N_razv-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>N<sub>связ</sub>= <input type="text" name="formula_N_sv-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?" ></p>
+                <p>N<sub>вод</sub>= <input type="text" name="formula_N_vod-var2"required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <p>N<sub>л/с</sub>= <input disabled="disabled" type="text" name="formula_Nls-var2"> человек</p>
+                
+            <h3>16. Определим количество отделений на основных пожарных автомобилях:</h3>
+                <p>N<sub>отд</sub>= <input disabled="disabled" type="text" name="formula_Notd-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"> отделений</p>
+                
+                <p><b>Вывод:</b></p> <textarea name="conclusion-var2" required> </textarea> -->
 		
 	<p>Сохранить на сервере <input name="server" type="text"></p>
 <input type="submit" value="скачать">

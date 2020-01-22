@@ -1,14 +1,14 @@
 <?php 
-/*
-Видеокурс по созданию онлайн сервисов: http://aff.krotovroman.ru/phppro/
-Видеокурс по созданию продающих сайтов: http://aff.krotovroman.ru/landing/
-*/
+
+
 set_include_path(get_include_path().PATH_SEPARATOR.realpath(__DIR__."/library/")); 
 require_once 'config.php';
-function __autoload($name_class) {require_once $name_class.'.php';} //автозагрузка классов из папки
-
-$object = new stdClass(); // Создаём объект
-foreach( $_REQUEST as $key=>$val )  $object->$key = sanitize($val); //получаем переменные
+//автозагрузка классов из папки
+function __autoload($name_class) {require_once $name_class.'.php';} 
+//создание объекта
+$object = new stdClass(); 
+//получение данных из формы
+foreach( $_REQUEST as $key=>$val )  $object->$key = sanitize($val); 
 
 $word= new Word();
 
