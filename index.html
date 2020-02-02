@@ -11,13 +11,13 @@
 	<p>№<input name="id_document" type="text"></p>
 	<h2>ОПЕРАТИВНО - ТАКТИЧЕСКАЯ ХАРАКТЕРИСТИКА</h2>
         <p>Общие сведения об объекте </p> <textarea required type="text" name="general_info"> </textarea>
-        <p>Данные о пожарной нагрузке</p> <textarea required type="text" name="fire-load-data"> </textarea>
+      <!--  <p>Данные о пожарной нагрузке</p> <textarea required type="text" name="fire-load-data"> </textarea>
         <p>Данные о противопожарной защите объекта</p> <textarea required type="text" name="fire_protection"></textarea>
-        <p>Сведения о коммуникациях объекта</p> <textarea type="text" name="object_communication"></textarea>
+        <p>Сведения о коммуникациях объекта</p> <textarea required type="text" name="object_communication"></textarea>
         <p>Противопожарное водоснабжение </p>
-            <p>Внутреннее противопожарное водоснабжение</p> <textarea type="text" name="inner-water-supply"></textarea>
-            <p>Наружное противопожарное водоснабжение</p> <textarea type="text" name="outer-water-supply"></textarea>
-            <p>Первичные средства пожаротушения</p> <textarea type="text" name="primary-fire-extinguishing-means"></textarea>
+            <p>Внутреннее противопожарное водоснабжение</p> <textarea required type="text" name="inner-water-supply"></textarea>
+            <p>Наружное противопожарное водоснабжение</p> <textarea  required type="text" name="outer-water-supply"></textarea>
+            <p>Первичные средства пожаротушения</p> <textarea required type="text" name="primary-fire-extinguishing-means"></textarea>
         <p>Охрана и средства связи</p> <textarea type="text" name="security_communications"></textarea>
 		  
 		
@@ -66,7 +66,7 @@
                 <p>t<sub>2</sub> = <input disabled="disabled" type="text" name="formula_t2" > мин</p>
                 <p>R<sub>1</sub> = <input disabled="disabled" type="text" name="formula_R1" > м</p>
             
-            <h4>3. Определим площадь пожара </h4>
+         <!--    <h4>3. Определим площадь пожара </h4>
                 <p>путь пройденный огнем(ширина помещения): </p>
                 <p>L = <input type="text" name="formula_L_way" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
                 <p>ширина помещения: </p>
@@ -178,7 +178,7 @@
 
 
 
-<!-- 
+
 
 
         <h3>Тактический замысел №2</h3>
@@ -309,10 +309,10 @@
             <h3>16. Определим количество отделений на основных пожарных автомобилях:</h3>
                 <p>N<sub>отд</sub>= <input disabled="disabled" type="text" name="formula_Notd-var2" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"> отделений</p>
                 
-                <p><b>Вывод:</b></p> <textarea name="conclusion-var2" required> </textarea> -->
+                <p><b>Вывод:</b></p> <textarea name="conclusion-var2" required> </textarea>
 		
-	<p>Сохранить на сервере <input name="server" type="text"></p>
-<input type="submit" value="скачать">
+	<p>Сохранить на сервере <input name="server" type="text"></p>-->
+<input type="submit" name="download" value="скачать">
 </form>
 </body>
 </html>

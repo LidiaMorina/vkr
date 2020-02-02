@@ -16,7 +16,7 @@ class Word {
 		
 		if (empty($data['template'])) 
 		  $template="template1";
-    
+        //путь до шаблона
 		$tmp_patch=realpath(__DIR__."/../templates/".$template.".docx");
 		
 		if ($tmp_patch==false) {
@@ -26,9 +26,6 @@ class Word {
 		
 		$this->document = $this->phpword->loadTemplate($tmp_patch); //открываем шаблон			
 		
-		//$title="Коммерческое предложение";
-		//$subject="Коммерческое предложение";
-		// $description="Коммерческое предложение";
 		
 		$this->properties = $this->phpword->getDocInfo();			
 		$this->properties->setCreator($_SERVER['HTTP_HOST']); 
@@ -39,17 +36,12 @@ class Word {
 		$this->properties->setCreated(time()); //time()
 		$this->properties->setModified(time());
 		$this->properties->setSubject($this->rus2translit($subject));
-		//$this->properties->setDefaultFontName('Times New Roman');
-		//$this->properties->setDefaultFontSize(14);
-		//получаем переменные для подстановки в шаблон
-		// в шаблоне - docx файле должны быть переменные вида ${fio} причем важно чтобы они вставлялись
-		// одним элементом, т.е. без пробелов и лучше просто скопировать отсюда и вставить.
-		// потому что если по частям сохранять эту пременную она может смешаться с тегами
+
 				
 		//вычисляемые поля	
 		
 			
-		$data['created']		=date("d.m.Y")." года";
+		//$data['created']		=date("d.m.Y")." года";
 		
 		if (empty($data['id_document']))
 			$data['id_document']	=uniqid();
@@ -464,24 +456,27 @@ class Word {
 		//заменяем переменные	
 		foreach($data as $field=>$value)  $this->document->setValue($field, $value);		
 		
-		 
+		
+        //сохранение файла
 		if (empty($data['server'])) {
-      $temp_file="finish/dogovor_".$data['id_document'].".docx";
-      $this->document->saveAs($temp_file); //сохранить в временную папку на сервере	    
-		} else {
-      $temp_file = tempnam(sys_get_temp_dir(), 'PHPWord');//сохранять будем во временную папку  
-      
-      $this->document->saveAs($temp_file); //сохранить в временную папку на сервере		    
-      //заголовки чтобы скачать сразу файл
-      //header ( "Expires: Mon, 1 Apr 1974 05:00:00 GMT" );
-      header ( "Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT" );
-      header ( "Cache-Control: no-cache, must-revalidate" );
-      header ( "Pragma: no-cache" );
-      header ( "Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document" );
-      header("Content-Disposition: attachment; filename=dogovor_".$data['id_document'].".docx");
-      readfile($temp_file); 
-      unlink($temp_file);
-		} 	
+		  $temp_file="finish/dogovor_".$data['id_document'].".docx";
+		  $this->document->saveAs($temp_file); //сохранить в временную папку на сервере	    
+		  
+
+			} else {
+			  $temp_file = tempnam(sys_get_temp_dir(), 'PHPWord');//сохранять будем во временную папку  
+			  
+			  $this->document->saveAs($temp_file); //сохранить в временную папку на сервере		    
+			  //заголовки чтобы скачать сразу файл
+			  //header ( "Expires: Mon, 1 Apr 1974 05:00:00 GMT" );
+			  header ( "Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT" );
+			  header ( "Cache-Control: no-cache, must-revalidate" );
+			  header ( "Pragma: no-cache" );
+			  header ( "Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document" );
+			  header("Content-Disposition: attachment; filename=dogovor_".$data['id_document'].".docx");
+			  readfile($temp_file); 
+			  unlink($temp_file);
+				} 	
 			
 	}
 	
