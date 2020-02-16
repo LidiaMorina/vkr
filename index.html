@@ -1,17 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="form.php">
-	<p>№<input name="id_document" type="text"></p>
+    <form method="POST" action="form.php" id="myform">
+    <p>№<input name="id_document" type="text"></p>
+
+
+    <div class="mb-3">
+            <label for="validationTextarea">Утверждаю</label>
+            <textarea name="claim" class="form-control is-invalid" id="validationTextarea" placeholder="КТО" required></textarea>
+            <div class="invalid-feedback">
+              Please enter a message in the textarea.
+            </div>
+    </div>
+    <div class="mb-3">
+            <label for="validationTextarea">Утверждаю</label>
+            <textarea  name="claim_2" class="form-control is-invalid" id="validationTextarea" placeholder="КЕМ" required></textarea>
+            <div class="invalid-feedback">
+              Please enter a message in the textarea.
+            </div>
+    </div>
+
+
+   
+
+    <p>План тушения пожара(наименование объекта)</p> <textarea required type="text" name="fire_plan"></textarea>
+    
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Должность</th>
+            <th scope="col">Телефон</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <input type="text" name="position" form="myform">
+            </td>
+            <td>
+                <input type="text" name="phone" form="myform">
+            </td>
+          </tr>
+          <tr>
+                <td>
+                    <input type="text" name="position_2" form="myform">
+                </td>
+                <td>
+                    <input type="text" name="phone_2" form="myform">
+                </td>
+              </tr>
+        </tbody>
+      </table>
+
+      <p>Ранг пожара<input class="form-control" type="text" required name="fire_rang" ></p>
+      <p>План тушения пожара составил<input class="form-control" type="text" required name="plan_compiler" ></p>
+
 	<h2>ОПЕРАТИВНО - ТАКТИЧЕСКАЯ ХАРАКТЕРИСТИКА</h2>
         <p>Общие сведения об объекте </p> <textarea required type="text" name="general_info"> </textarea>
-      <!--  <p>Данные о пожарной нагрузке</p> <textarea required type="text" name="fire-load-data"> </textarea>
+      <!--  <p>Данные о пожарной нагрузке</p> <textarea required type="text" name="fire_load_data"> </textarea>
         <p>Данные о противопожарной защите объекта</p> <textarea required type="text" name="fire_protection"></textarea>
         <p>Сведения о коммуникациях объекта</p> <textarea required type="text" name="object_communication"></textarea>
         <p>Противопожарное водоснабжение </p>
@@ -45,20 +99,24 @@
         <h3>Тактический замысел №1</h3>
             <p>Согласно справочных данных:</p>
                 <p>Время до сообщения о пожаре: t<sub>сооб.</sub> = <input type="text" name="time-massage-var1"> мин</p>
-            <p>Маршрут следования осуществляется по улицам: </p><textarea type="text" name="street"></textarea>
+            <p>Маршрут следования осуществляется по улицам: </p><textarea type="text" name="street"></textarea>-->
         
             <p>Расчёт сил и средств</p>
         
-            <h4>1. Определим время свободного развития пожара на момент прибытия ПСЧ №4 </h4>
+            <h3>Тактический замысел №1</h3>
+
+                <p>Длина помещения = <input type="text" name="formula_a_length" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+                <p>Ширина помещения = <input type="text" name="formula_a_wight" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
+            
+                <h4>1. Определим время свободного развития пожара на момент прибытия ПСЧ №4 </h4>
                 <p>t<sub>д.с</sub> = <input type="text" name="formula_t_ds" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
                 <p>t<sub>сб.</sub> = <input type="text"  name="formula_t_sb" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
-                <p>t<sub>сл.</sub> = <input type="text" name="formula_t_sl" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
                 <p>t<sub>бр1.</sub> = <input type="text" name="formula_t_br1" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
                 <p>L = <input type="text" name="formula_L" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
                 <p>V<sub>сл.</sub> = <input type="text" name="formula_Vsl" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?"></p>
 
                 <p>t<sub>св.</sub> = <input disabled="disabled" type="text" name="formula_t_sv"> минут</p>
-                <p>t<sub>сл.</sub> = <input disabled="disabled" type="text" name="formula_t_sl"> минут</p>
+                <p>t<sub>сл.</sub> = <input disabled="disabled" type="text" name="formula_t_sl"> минут</p>    
 
             <h4>2. Определим радиус пожара к моменту подачи стволов на тушение пожара</h4> 
                 <p>V<sub>л</sub> = <input type="text" name="formula_Vl" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
@@ -66,15 +124,20 @@
                 <p>t<sub>2</sub> = <input disabled="disabled" type="text" name="formula_t2" > мин</p>
                 <p>R<sub>1</sub> = <input disabled="disabled" type="text" name="formula_R1" > м</p>
             
-         <!--    <h4>3. Определим площадь пожара </h4>
+            <h4>3. Определим площадь пожара </h4>
                 <p>путь пройденный огнем(ширина помещения): </p>
                 <p>L = <input type="text" name="formula_L_way" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
-                <p>ширина помещения: </p>
-                <p>a = <input type="text" name="formula_a_wight" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
+
+                <label></label><input type='radio' name='RadioGroup1' value='circle'> Центр </label>
+                <br>
+                <label>
+                <label></label><input type='radio' name='RadioGroup1' value='corner'> Угол </label>
+                <br>
+                
 
                 <p>S<sub>п</sub> = <input disabled="disabled" type="text" name="formula_Sp"> м<sup>2</sup></p>
             
-            <h4>4. Определим площадь тушения пожара </h4>
+          <!--   <h4>4. Определим площадь тушения пожара </h4>
                 <p>количество направлений подачи стволов: </p>
                 <p>n = <input type="text" name="formula_n" required pattern="-?(\d+|\d+.\d+|.\d+)([eE][-]?\d+)?"></p>
                 <p>глубина тушения ручными стволами: </p>
@@ -314,5 +377,8 @@
 	<p>Сохранить на сервере <input name="server" type="text"></p>-->
 <input type="submit" name="download" value="скачать">
 </form>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
