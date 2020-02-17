@@ -72,7 +72,58 @@ class Word{
 		if (empty($data['night'])) 	
 		$data['night']			="пусто6";
 		if (empty($data['exit-from-building'])) 	
-			$data['exit-from-building']			="пусто6";	
+			$data['exit-from-building']			="пусто6";
+
+
+//5
+		if (empty($data['place_fire'])) 	
+			$data['place_fire']			="пусто6";	
+		if (empty($data['place_fire_phone'])) 	
+			$data['place_fire_phone']			="пусто6";
+		if (empty($data['traffic_overlap'])) 	
+			$data['traffic_overlap']			="пусто6";
+		if (empty($data['traffic_overlap_phone'])) 	
+		$data['traffic_overlap_phone']			="пусто6";
+		if (empty($data['water_utility'])) 	
+			$data['water_utility']			="пусто6";	
+		
+		if (empty($data['water_utility_phone'])) 	
+			$data['water_utility_phone']			="пусто6";	
+		if (empty($data['electricity'])) 	
+			$data['electricity']			="пусто6";
+		if (empty($data['electricity_phone'])) 	
+			$data['electricity_phone']			="пусто6";
+		if (empty($data['medical_care'])) 	
+		$data['medical_care']			="пусто6";
+		if (empty($data['medical_care_phone'])) 	
+			$data['medical_care_phone']			="пусто6";	
+		
+		
+		//список должностнных лиц
+		
+		if (empty($data['position_1'])) 	
+			$data['position_1']			="пусто6";	
+		if (empty($data['FIO_1'])) 	
+			$data['FIO_1']			="пусто6";
+		if (empty($data['phone_1'])) 	
+			$data['phone_1']			="пусто6";
+		if (empty($data['position_2'])) 	
+		$data['position_2']			="пусто6";
+		if (empty($data['FIO_2'])) 	
+			$data['FIO_2']			="пусто6";	
+		if (empty($data['phone_2'])) 	
+			$data['phone_2']			="пусто6";	
+		if (empty($data['position_3'])) 	
+			$data['position_3']			="пусто6";
+		if (empty($data['FIO_3'])) 	
+			$data['FIO_3']			="пусто6";
+		if (empty($data['phone_3'])) 	
+		$data['phone_3']			="пусто6";
+
+		
+		
+	
+		
 		if (empty($data['time-massage-var1'])) 	
 			$data['time-massage-var1']			="пусто6";
 		if (empty($data['street'])) 	
@@ -97,10 +148,37 @@ class Word{
 		if (empty($data['formula_Vl'])) 	
 			$data['formula_Vl']			="пусто6";
 		$data['formula_t2'] = $data['formula_t_sv'] - 10;
-		$data['formula_R1'] = 0.5* $data['formula_Vl'] * 10+$data['formula_Vl']*$data['formula_t_sv'];
+		$data['formula_R1'] = 0.5* $data['formula_Vl'] * 10+$data['formula_Vl']*$data['formula_t2'];
 	//3	
+		$pi = 3.14;
 		if (empty($data['formula_L_way'])) 	
 			$data['formula_L_way']			="пусто путь";
+		//прямоугольник
+		if ($data['formula_R1'] > $data['formula_a_wight']){
+			$data['formula_Sp'] = $data['formula_L_way'] * $data['formula_a_wight'];
+			$data['conclusion_form_fire'] = 'прямоугольную форму';
+		} else {
+			if( isset( $_POST['gridRadios'] ) )
+			{
+				switch( $_POST['gridRadios'] )
+				{
+					case $data['circle']:
+						$data['formula_Sp'] = $data['formula_R1']*$data['formula_R1'] * $pi;
+						$data['conclusion_form_fire'] = 'круговую форму';
+						break;
+					case $data['semicircle']:
+						$data['formula_Sp'] = ($data['formula_R1']*$data['formula_R1'] * $pi) / 2;
+						$data['conclusion_form_fire'] = 'форму полукруга';
+						break;
+					case $data['angle']:
+						$data['formula_Sp'] = ($data['formula_R1']*$data['formula_R1'] * $pi) / 4;
+						$data['conclusion_form_fire'] = 'угловую форму';
+						break;	
+				}
+			}
+	
+		}
+	
 		if (empty($data['formula_a_wight'])) 	
 			$data['formula_a_wight']			="пусто ширина";
 		$data['formula_Sp'] = $data['formula_L_way'] * $data['formula_a_wight'];
