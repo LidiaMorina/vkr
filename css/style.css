@@ -1,0 +1,28 @@
+body{
+    background: #ffb5b5;
+    
+}
+
+.qwe{
+    width: 800px;
+    height: 5000px;
+    display: grid;
+    
+    
+
+}
+
+
+.child{
+    justify-self: center;
+}
+
+textarea{
+    width: 480px;  
+    height: 150px; 
+
+}
+
+p{
+    font-size: 20px;
+}

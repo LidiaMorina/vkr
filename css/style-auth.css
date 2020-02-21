@@ -1,0 +1,9 @@
+.wrap{
+    /* background-image: url(css\image\forest.png);  */
+    /* background: green; */
+    background: url(../css/image/8.jpg) no-repeat ; 
+    background-size: cover;
+    height: 100vh;
+   
+}
+
