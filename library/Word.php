@@ -52,13 +52,13 @@ class Word{
 			$data['phone2']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['fire_rang'])) 	
 			$data['fire_rang']			="Вы не ввели значение в текстовое поле!";
-		if (empty($data['plan_was_made'])) 	
-			$data['plan_was_made']			="Вы не ввели значение в текстовое поле!";
+		if (empty($data['plan_compiller'])) 	
+			$data['plan_compiller']			="Вы не ввели значение в текстовое поле!";
 		
 
 		if (empty($data['general_info'])) 	
 			$data['general_info']			="Вы не ввели значение в текстовое поле!";
-		if (empty($data['fire-load-data'])) 	
+		if (empty($data['fire_load_data'])) 	
 			$data['fire_load_data']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['fire_protection'])) 	
 			$data['fire_protection']			="Вы не ввели значение в текстовое поле!";
@@ -168,7 +168,7 @@ class Word{
 		if (empty($data['formula_Vsl'])) 	
 			$data['formula_Vsl']			="Вы не ввели значение в текстовое поле!";	
 		
-		$data['formula_t_sl'] = $data['formula_L'] * 60/$data['formula_Vsl']; 
+	    $data['formula_t_sl'] = $data['formula_L'] * 60/$data['formula_Vsl']; 
 		$data['formula_t_sv'] = $data['formula_t_ds'] + $data['formula_t_sb']+$data['formula_t_sl']+$data['formula_t_br1'];
 		
 	//2
