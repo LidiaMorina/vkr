@@ -1,18 +1,119 @@
-body{
-    background: #ffb5b5;
-    
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+body {
+  position: relative;
+  font-family: 'Oswald', sans-serif;
+  background: #303F9F;
+  color: #fff;
+  font-size: 20px;
 }
 
-.qwe{
-    width: 800px;
-    height: 5000px;
-    display: grid;
-    
-    
+.grid {
+  list-style: none;
+  margin-left: -40px;
+}
 
+.gc {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: -.25em;
+  min-height: 1px;
+  padding-left: 40px;
+  vertical-align: top;
+}
+
+.gc--1-of-3 {
+  width: 33.33333%;
+}
+
+.gc--2-of-3 {
+  width: 66.66666%;
+}
+
+.naccs {
+  position: relative;
+  max-width: 900px;
+  margin: 100px auto 0;
+}
+
+.naccs .menu div {
+  padding: 15px 20px 15px 40px;
+  margin-bottom: 10px;
+  color: #303F9F;
+  background: #3F51B5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  font-weight: 700;
+  -webkit-transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.naccs .menu div:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.naccs .menu div span.light {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 24px;
+  left: 15px;
+  background-color: #303F9F;
+  border-radius: 100%;
+  -webkit-transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.naccs .menu div.active span.light {
+  background-color: #FBC02D;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  top: 0;
+  border-radius: 0;
+}
+
+.naccs .menu div.active {
+  color: #FBC02D;
+  padding: 15px 20px 15px 20px;
+}
+
+ul.nacc {
+  position: relative;
+  height: 0px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+ul.nacc li {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+  position: absolute;
+  list-style: none;
+  -webkit-transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+ul.nacc li.active {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+  z-index: 2;
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+ul.nacc li p {
+  margin: 0;
 }
 
 
+/* 
 .child{
     justify-self: center;
 }
@@ -26,3 +127,135 @@ textarea{
 p{
     font-size: 20px;
 }
+
+.tubs { 
+    position: relative; 
+    margin: 50px auto; 
+    width: 1020px; 
+    background: white; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.07); 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.07); 
+  } 
+  
+  .kugasvem-kemdan { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    padding: 9px 12px 0; 
+    text-align: left; 
+    direction: rtl; 
+    background: #f5f5f5; 
+    border-bottom: 1px solid #ddd; 
+    border-radius: 3px 3px 0 0; 
+  } 
+  
+  .kigedupodebas-tab, 
+  .kitudsac-mazedamip:target:first-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:first-child ~ .kigedupodebas-tab, 
+  .kitudsac-mazedamip:target:nth-of-type(2) ~ .kugasvem-kemdan > .kigedupodebas-tab:nth-child(2) ~ .kigedupodebas-tab, 
+  .kitudsac-mazedamip:target:last-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:last-child ~ .kigedupodebas-tab { 
+    position: relative; 
+    display: inline-block; 
+    vertical-align: top; 
+    margin-top: 3px; 
+    line-height: 36px; 
+    font-weight: normal; 
+    color: #999; 
+    background: #fcfcfc; 
+    border: solid #ddd; 
+    border-width: 1px 1px 0; 
+    border-radius: 5px 5px 0 0;  */
+    /* Reset %active-kigedupodebas-tab */ 
+    /* padding-bottom: 0; 
+    bottom: auto; 
+  } 
+  .kigedupodebas-tab > .kigedupodebas-tab-link, 
+  .kitudsac-mazedamip:target:first-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:first-child ~ .kigedupodebas-tab > .kigedupodebas-tab-link, 
+  .kitudsac-mazedamip:target:nth-of-type(2) ~ .kugasvem-kemdan > .kigedupodebas-tab:nth-child(2) ~ .kigedupodebas-tab > .kigedupodebas-tab-link, 
+  .kitudsac-mazedamip:target:last-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:last-child ~ .kigedupodebas-tab > .kigedupodebas-tab-link { 
+    margin: 0; 
+    border-top: 0; 
+  } 
+  
+  .kigedupodebas-tab + .kigedupodebas-tab { 
+    margin-right: -1px; 
+  } 
+  
+  .kigedupodebas-tab:last-child, 
+  .kitudsac-mazedamip:target:first-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:first-child, 
+  .kitudsac-mazedamip:target:nth-of-type(2) ~ .kugasvem-kemdan > .kigedupodebas-tab:nth-child(2), 
+  .kitudsac-mazedamip:target:last-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:last-child { 
+    bottom: -1px; 
+    margin-top: 0; 
+    padding-bottom: 2px; 
+    line-height: 34px; 
+    font-weight: bold; 
+    color: #555; 
+    background: white; 
+    border-top: 0; 
+  } 
+  .kigedupodebas-tab:last-child > .kigedupodebas-tab-link, 
+  .kitudsac-mazedamip:target:first-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:first-child > .kigedupodebas-tab-link, 
+  .kitudsac-mazedamip:target:nth-of-type(2) ~ .kugasvem-kemdan > .kigedupodebas-tab:nth-child(2) > .kigedupodebas-tab-link, 
+  .kitudsac-mazedamip:target:last-of-type ~ .kugasvem-kemdan > .kigedupodebas-tab:last-child > .kigedupodebas-tab-link { 
+    margin: 0 -1px; 
+    border-top: 4px solid #4cc8f1; 
+  } 
+  
+  .kigedupodebas-tab-link { 
+    display: block; 
+    min-width: 60px; 
+    padding: 0 15px; 
+    color: inherit; 
+    text-align: center; 
+    text-decoration: none; 
+    border-radius: 4px 4px 0 0; 
+  } 
+  
+  .kitudsac-mazedamip { 
+    display: none; 
+    padding-top: 50px; 
+  } 
+  
+  .kitudsac-mazedamip > li + li { 
+    border-top: 1px solid #e8e8e8; 
+  } 
+  .kitudsac-mazedamip:last-of-type { 
+    display: block; 
+  } 
+  .kitudsac-mazedamip:target { 
+    display: block; 
+  } 
+  .kitudsac-mazedamip:target ~ .kitudsac-mazedamip { 
+    display: none; 
+  } 
+  
+  .kitudsac-mazedamip-link { 
+    display: block; 
+    line-height: 18px; 
+    padding: 10px 12px; 
+    font-weight: bold; 
+    color: #555; 
+    text-decoration: none; 
+    cursor: pointer; 
+  } 
+  .kitudsac-mazedamip-link:hover { 
+    background: #f7f7f7; 
+  } 
+  li:last-child > .kitudsac-mazedamip-link { 
+    border-radius: 0 0 3px 3px; 
+  } 
+  .kitudsac-mazedamip-link > img { 
+    float: left; 
+    width: 32px; 
+    height: 32px; 
+    margin: 2px 12px 0 0; 
+  } 
+  .kitudsac-mazedamip-link > span { 
+    display: block; 
+    font-size: 11px; 
+    font-weight: normal; 
+    color: #999; 
+  } */
