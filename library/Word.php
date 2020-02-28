@@ -148,21 +148,33 @@ class Word{
 		$data['phone_3']			="Вы не ввели значение в текстовое поле!";
 
 		
-		
-	
-		
 		if (empty($data['time-massage-var1'])) 	
 			$data['time-massage-var1']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['street'])) 	
 			$data['street']			="Вы не ввели значение в текстовое поле!";
+		
+		//замена запятой на точку
+		$data['formula_t_ds'] = str_replace(',', '.', $data['formula_t_ds']);
+		$data['formula_t_sb'] = str_replace(',', '.', $data['formula_t_sb']);
+		$data['formula_L'] = str_replace(',', '.', $data['formula_L']);
+		$data['formula_Vsl'] = str_replace(',', '.', $data['formula_Vsl']);
+		$data['intensity-var1'] = str_replace(',', '.', $data['intensity-var1']);
+		$data['linear-velocity-var1'] = str_replace(',', '.', $data['linear-velocity-var1']);
+		$data['linear-velocity-var2'] = str_replace(',', '.', $data['linear-velocity-var2']);
+		$data['intensity-var2'] = str_replace(',', '.', $data['intensity-var2']);
+
+
 	//расчёт
 	//1
+
 		if (empty($data['formula_t_ds'])) 	
 			$data['formula_t_ds']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_t_sb'])) 	
 			$data['formula_t_sb']			="Вы не ввели значение в текстовое поле!";
-		if (empty($data['formula_L'])) 	
-			$data['formula_L']			="Вы не ввели значение в текстовое поле!";
+		if (empty($data['formula_t_sl'])) 	
+			$data['formula_t_sl']			="Вы не ввели значение в текстовое поле!";
+		if (empty($data['formula_t_br1'])) 	
+			$data['formula_t_br1']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_L'])) 	
 			$data['formula_L']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_Vsl'])) 	
@@ -174,6 +186,9 @@ class Word{
 	//2
 		if (empty($data['formula_Vl'])) 	
 			$data['formula_Vl']			="Вы не ввели значение в текстовое поле!";
+		
+		$data['formula_Vl'] = str_replace(',', '.', $data['formula_Vl']);
+		
 		$data['formula_t2'] = $data['formula_t_sv'] - 10;
 		$data['formula_R1'] = 0.5* $data['formula_Vl'] * 10+$data['formula_Vl']*$data['formula_t2'];
 		$radius = $data['formula_R1'];
@@ -183,10 +198,14 @@ class Word{
 			$data['formula_a_length']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_a_wight'])) 	
 			$data['formula_a_wight']			="Вы не ввели значение в текстовое поле!";
+		$data['formula_a_length'] = str_replace(',', '.', $data['formula_a_length']);
+		$data['formula_a_wight'] = str_replace(',', '.', $data['formula_a_wight']);
 		//прямоугольник
 		if ($data['formula_R1'] > $data['formula_a_wight']){
 			$data['fire_area']=$data['formula_a_length']*$data['formula_a_wight'];
 			$data['formula_fire_area']='a * b = '.$data['formula_a_length'].'*'.$data['formula_a_wight'].'=';
+			$data['fire_area_round'] = round($data['fire_area'], 2);
+			
 			$data['conclusion_form_fire'] = 'прямоугольную форму';
 
 		} else {
@@ -197,16 +216,19 @@ class Word{
 					case 'circle':
 						$data['fire_area'] = $radius * $radius * $pi;
 						$data['formula_fire_area']='PR^2 = '.$data['formula_R1'].'*'.$data['formula_a_wight'].'=';
+						$data['fire_area_round'] = round($data['fire_area'], 2);
 						$data['conclusion_form_fire'] = 'круговую форму';
 						break;
 					case 'semicircle':
 						$data['fire_area'] = ($radius *$radius * $pi) / 2;
 						$data['formula_fire_area']='PR^2/2 = '.$data['formula_R1'].'*'.$data['formula_a_wight'].'=';
+						$data['fire_area_round'] = round($data['fire_area'], 2);
 						$data['conclusion_form_fire'] = 'форму полукруга';
 						break;
 					case 'angle':
 						$data['fire_area'] = ($radius * $radius * $pi) / 4;
 						$data['formula_fire_area']='PR^2/4 = '.$data['formula_R1'].'*'.$data['formula_a_wight'].'=';
+						$data['fire_area_round'] = round($data['fire_area'], 2);
 						$data['conclusion_form_fire'] = 'угловую форму';
 						break;	
 				}
@@ -214,42 +236,63 @@ class Word{
 	
 		}
 	
-	//4 
-			
+	//4 	
 		if (empty($data['formula_n'])) 	
 			$data['formula_n']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_ht'])) 	
 			$data['formula_ht']			="Вы не ввели значение в текстовое поле!";
-		$data['formula_St'] = $data['formula_n'] * $data['formula_ht']*$data['formula_a_wight'];
 		
-		if ($data['fire_area'] > $data['formula_St']){
+		$data['formula_n'] = str_replace(',', '.', $data['formula_n']);
+		$data['formula_ht'] = str_replace(',', '.', $data['formula_ht']);
+		
+		$data['formula_St'] = $data['formula_n'] * $data['formula_ht']*$data['formula_a_wight'];
+		$data['formula_St_round'] = round($data['formula_St'], 2);
+		
+		if ($data['fire_area'] < $data['formula_St']){
 			$data['conclusion_fire_area'] = 'Так как, площадь тушения превышает площадь пожара, следовательно принимаем что Sт = Sп и будет составлять '.$data['fire_area'];	
-			$data['fireArea'] = $data['fire_area'];
+			$data['fireArea'] = $data['fire_area_round'];
 		} else {
-			$data['conclusion_fire_area'] = 'мяу мяу мяу'.$data['fire_area'];	
+			if($data['fire_area'] > $data['formula_St']){
+				$data['conclusion_fire_area'] = 'Так как, площадь тушения меньше площади пожара, следовательно принимаем что Sт = Sт и будет составлять '.$data['formula_St'];
+				$data['fireArea'] = $data['formula_St_round'];
+			} else { 	
+				$data['conclusion_fire_area'] = 'Так как, площадь тушения равна площади пожара, следовательно принимаем что Sт = Sп и будет составлять '.$data['fire_area'];
+				$data['fireArea'] = $data['fire_area_round'];
+				
+			}
 		}
 	//5
 		if (empty($data['formula_Itr'])) 	
 			$data['formula_Itr']			="Вы не ввели значение в текстовое поле!";
+		$data['formula_Itr'] = str_replace(',', '.', $data['formula_Itr']);
+		
 		$data['formula_water-consumption'] = $data['fireArea'] * $data['formula_Itr'];
 	//6 
 		if (empty($data['formula_q_stvB'])) 	
 			$data['formula_q_stvB']			="Вы не ввели значение в текстовое поле!";
-	// 	$data['formula_Nt_stvB'] = $data['formula_water-consumption'] / $data['formula_q_stvB'];
-		//$data['formula_Nt_stvB_round'] = round($data['formula_Nt_stvB'],2)
+		$data['formula_q_stvB'] = str_replace(',', '.', $data['formula_q_stvB']);
+		
+	    $data['formula_Nt_stvB'] = $data['formula_water-consumption'] / $data['formula_q_stvB'];
+		$data['formula_Nt_stvB_round'] = round($data['formula_Nt_stvB'],2)
 		$data['formula_Nt_stvB_ceil']= ceil($data['formula_Nt_stvB']);
 	//7
 		if (empty($data['formula_Nst_t'])) 	
 			$data['formula_Nst_t']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_qt_stB'])) 	
 			$data['formula_qt_stB']			="Вы не ввели значение в текстовое поле!";
+		$data['formula_Nst_t'] = str_replace(',', '.', $data['formula_Nst_t']);
+		$data['formula_qt_stB'] = str_replace(',', '.', $data['formula_qt_stB']);
+		
 		$data['formula_Qt_fact'] = $data['formula_Nt_stvB_ceil'] * $data['formula_qt_stB'];
-	//8
+	//8 текст
 	//9
 		if (empty($data['formula_Nst_z'])) 	
 			$data['formula_Nst_z']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_Qz_stB'])) 	
 			$data['formula_Qz_stB']			="Вы не ввели значение в текстовое поле!";
+		$data['formula_Nst_z'] = str_replace(',', '.', $data['formula_Nst_z']);
+		$data['formula_Qz_stB'] = str_replace(',', '.', $data['formula_Qz_stB']);
+		
 		$data['formula_Qz_fact'] = $data['formula_Nst_z'] * $data['formula_Qz_stB'];
 	//10
 		$data['formula_Q_fact'] = $data['formula_Qt_fact'] + $data['formula_Qz_fact'];
@@ -261,25 +304,28 @@ class Word{
 	/*	if (empty($data['formula_Hh'])) 	
 			$data['formula_Hh']			="пусто";
 		if (empty($data['formula_Hp'])) 	
-			$data['formula_Hp']			="пусто";*/
+			$data['formula_Hp']			="пусто";
+		if (empty($data['formula_S'])) 	
+			$data['formula_S']			="пусто";*/
 		if (empty($data['formula_Zm'])) 	
 			$data['formula_Zm']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_Zst'])) 	
 			$data['formula_Zst']			="Вы не ввели значение в текстовое поле!";
-		/*if (empty($data['formula_S'])) 	
-			$data['formula_S']			="пусто";*/
-	
+		$data['formula_Zm'] = str_replace(',', '.', $data['formula_Zm']);
+		$data['formula_Zst'] = str_replace(',', '.', $data['formula_Zst']);
+		
 		
 		$data['formula_Hh'] = 90;
 		$data['formula_Hp'] = 40;
 		$data['formula_S'] = 0.015;
 		
-	 	//$data['formula_Lpr'] = ($data['formula_Hh'] - ( $data['formula_Hp']+$data['formula_Zm']+$data['formula_Zst']))*20/($data['formula_S']*$data['formula_Q_fact']*$data['formula_Q_fact']); 
+	 	$data['formula_Lpr'] = ($data['formula_Hh'] - ( $data['formula_Hp']+$data['formula_Zm']+$data['formula_Zst']))*20/($data['formula_S']*$data['formula_Q_fact']*$data['formula_Q_fact']); 
 	    $data['formula_Lpr_ceil'] = ceil($data['formula_Lpr']) ;
 	//14
 		$data['formula_Vvo'] = $data['formula_Q_fact'] *60*10;
 		if (empty($data['conclusion_supplyOfwater'])) 	
 			$data['conclusion_supplyOfwater']			="Вы не ввели значение в текстовое поле!";	
+		$data['conclusion_supplyOfwater'] = str_replace(',', '.', $data['conclusion_supplyOfwater']);
 	//15
 		if (empty($data['formula_N_tush'])) 	
 			$data['formula_N_tush']			="Вы не ввели значение в текстовое поле!";	
@@ -299,6 +345,17 @@ class Word{
 			$data['formula_N_sv']			="Вы не ввели значение в текстовое поле!";	
 		if (empty($data['formula_N_vod'])) 	
 			$data['formula_N_vod']			="Вы не ввели значение в текстовое поле!";
+		
+		$data['formula_N_tush'] = str_replace(',', '.', $data['formula_N_tush']);
+		$data['formula_N_zash'] = str_replace(',', '.', $data['formula_N_zash']);
+		$data['formula_N_search'] = str_replace(',', '.', $data['formula_N_search']);
+		$data['formula_Nrez_gdzs'] = str_replace(',', '.', $data['formula_Nrez_gdzs']);
+		$data['formula_N_kpp'] = str_replace(',', '.', $data['formula_N_kpp']);
+		$data['formula_N_pb'] = str_replace(',', '.', $data['formula_N_pb']);
+		$data['formula_N_razv'] = str_replace(',', '.', $data['formula_N_razv']);
+		$data['formula_N_sv'] = str_replace(',', '.', $data['formula_N_sv']);
+		$data['formula_N_vod'] = str_replace(',', '.', $data['formula_N_vod']);
+				
 		$data['formula_Nls'] = $data['formula_N_tush'] *3 + $data['formula_N_zash'] *3 
 								+ $data['formula_N_search'] *3 + $data['formula_Nrez_gdzs'] *3 
 								+ $data['formula_N_kpp'] *1 +$data['formula_N_pb'] *1 + 
