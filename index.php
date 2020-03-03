@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="кг">
+<html lang="ru">
 <head>
         
     <meta charset="UTF-8">
@@ -17,7 +17,9 @@
         <h1 class="display-4 text-light">Мяу</h1>
     </nav> -->
     <div class="wrap">
-    <div class="container">
+        <div class="container">
+            
+        
             <div class="row justify-content-center align-items-center" style="height: 80vh;">
                 <div class="col-md-offset-3 col-md-6 wrap_2">
                     <form  action="auth.php" method="post" class="form-horizontal shadow p-5 mb-5 bg-white rounded">
@@ -26,9 +28,9 @@
                         <div class="input-group mb-3">
                             <input name="login" type="text" class="form-control">
                             <div class="input-group-append">
-                              <span class="input-group-text" id="basic-addon2">
+                            <span class="input-group-text" id="basic-addon2">
                                 <i class="fas fa-user-circle"></i>
-                              </span>
+                            </span>
                             </div>
                         </div>
                         <label>Пароль</label>
@@ -43,10 +45,20 @@
                         <div class="">
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
                         </div>
-                </form>
+                    </form>
+                </div>
             </div>
+            <?php
+                if($_COOKIE['user'] == ''):
+            ?> 
+            <?php else:?>
+            <?php
+             
+                //header('Location: main.php');
+            ?>    
+            <?php endif;?>           
+
         </div>
-    </div>
     </div>
 
 

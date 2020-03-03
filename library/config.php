@@ -1,10 +1,10 @@
 <?php
 //Настройки соединения с БД
-define("DB_PDODRIVER",      "mysql");
+/*define("DB_PDODRIVER",      "mysql");
 define("DB_HOST",           "localhost");
 define("DB_DATABASE",       "");
 define("DB_USERNAME",       "");
-define("DB_PASSWORD",       "");
+define("DB_PASSWORD",       "");*/
 
 function cleanInput($input){
   $search = array(

@@ -11,21 +11,26 @@
 	
     
 	//$mysql->query("INSERT INTO `users`(`login`, `password`) VALUES('$login', '$password')");
-	
+	//$password = md5($password."lfggeg8734jjh45kl7");
 	$result = $mysql -> query("SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password' ");
 	
-	$user = $result -> fetch_assoc();
+
+	//$user = $result -> fetch(PDO::FETCH_ASSOC);
+	$user = $result->fetch_assoc();
+	//$user = $result -> FETCH_ASSOC();
 	if (count($user) == 0 ) {
 		echo "Taкой пользователь не найден";
 		exit();	
 	}
 	
-	//setcookie('user', $user['name'], time() +60);
+
+	
+session_start();
+setcookie('user', $user['name'], time() + 3600*4, "/");
+
 	
 	
-	
-	$mysql->close();
-	
-	header('Location: main.html');
+$mysql->close();
+header('Location: main.php');
 
 ?>
