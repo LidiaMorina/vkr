@@ -250,14 +250,14 @@ class Word{
 		
 		if ($data['fire_area_round'] < $data['formula_St']){
 			$data['fireArea'] = $data['fire_area_round'];
-			$data['conclusion_fire_area'] = 'Так как, площадь тушения превышает площадь пожара, следовательно принимаем что Sт = Sп и будет составлять '.$data['fire_area_round'];		
+			$data['conclusion_fire_area'] = 'Так как, площадь тушения превышает площадь пожара, следовательно принимаем, что Sт = Sп и будет составлять '.$data['fire_area_round'];		
 		} else {
 			if($data['fire_area_round'] > $data['formula_St']){
 				$data['fireArea'] = $data['formula_St_round'];
-				$data['conclusion_fire_area'] = 'Так как, площадь тушения меньше площади пожара, следовательно принимаем что Sт = Sт и будет составлять '.$data['formula_St_round'];
+				$data['conclusion_fire_area'] = 'Так как, площадь тушения меньше площади пожара, следовательно принимаем, что Sт = Sт и будет составлять '.$data['formula_St_round'];
 			} else { 
 				$data['fireArea'] = $data['fire_area_round'];
-				$data['conclusion_fire_area'] = 'Так как, площадь тушения равна площади пожара, следовательно принимаем что Sт = Sп и будет составлять '.$data['fire_area_round'];
+				$data['conclusion_fire_area'] = 'Так как, площадь тушения равна площади пожара, следовательно принимаем, что Sт = Sп и будет составлять '.$data['fire_area_round'];
 				
 				
 			}
@@ -457,14 +457,14 @@ class Word{
 		
 		if ($data['fire_area_round-var2'] < $data['formula_St-var2']){
 			$data['fireArea-var2'] = $data['fire_area_round-var2'];
-			$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения превышает площадь пожара, следовательно принимаем что Sт = Sп и будет составлять '.$data['fire_area_round-var2'];		
+			$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения превышает площадь пожара, следовательно принимаем, что Sт = Sп и будет составлять '.$data['fire_area_round-var2'];		
 		} else {
 			if($data['fire_area_round-var2'] > $data['formula_St-var2']){
 				$data['fireArea-var2'] = $data['formula_St_round-var2'];
-				$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения меньше площади пожара, следовательно принимаем что Sт = Sт и будет составлять '.$data['formula_St_round-var2'];
+				$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения меньше площади пожара, следовательно принимаем, что Sт = Sт и будет составлять '.$data['formula_St_round-var2'];
 			} else { 
 				$data['fireArea-var2'] = $data['fire_area_round-var2'];
-				$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения равна площади пожара, следовательно принимаем что Sт = Sп и будет составлять '.$data['fire_area_round-var2'];
+				$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения равна площади пожара, следовательно принимаем, что Sт = Sп и будет составлять '.$data['fire_area_round-var2'];
 				
 				
 			}

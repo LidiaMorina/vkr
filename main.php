@@ -85,7 +85,6 @@
                         <?php require "navbar\chapter1.php";?> 
                    </li>
 
-
                    <li>
                     <?php require "navbar\chapter2.php";?> 
                    </li>
@@ -112,13 +111,6 @@
                             <input type="submit" name="download"  class="btn btn-success btn-lg " value="скачать">
                         </div>
                     </li>
-
-                    <!-- <li>
-                        <div>
-                            
-                            
-                        </div>
-                    </li> -->
 
                   </ul>
                   
