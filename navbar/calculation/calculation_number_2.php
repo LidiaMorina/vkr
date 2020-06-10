@@ -1,3 +1,4 @@
+
 <div>
     <h2>Расчет необходимых сил и средств для тушения пожаров и проведения АСР по двум наиболее сложным вариантам развития возможного пожара</h2>
     <h3>Тактический замысел №2</h3>
@@ -289,7 +290,7 @@
         <div class="form-row">
             <div class="form-group "> 
                 <p>Вывод про запах огнетушащих веществ</p>
-                <textarea class="form-control " rows="5" cols="80"  name = 'conclusion_supplyOfwater-var2' placeholder="вывод" required> </textarea> 
+                <textarea class="form-control " rows="5" cols="80"  name = 'conclusion_supplyOfwater-var2' placeholder="вывод" > </textarea> 
             </div>
         </div>
     </div>               
@@ -372,5 +373,5 @@
                 <h3><b>Вывод:</b></h3> <textarea class="form-control " rows="4" cols="90" name="conclusion-var2" required> </textarea> 
             </div>
         </div>
-    </div>  
+    </div>   
 </div>

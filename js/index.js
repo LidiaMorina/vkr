@@ -15,3 +15,9 @@ $(document).on("click", ".naccs .menu div", function() {
 		$(".naccs ul").height(listItemHeight + "px");
 	}
 });
+
+
+$( function() {
+	// or you can persist all forms data at one command
+	$( "form" ).sisyphus();
+} );

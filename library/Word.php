@@ -165,6 +165,21 @@ class Word{
 
 
 	//расчёт
+
+	//проверка на ноль
+	if ($data['formula_Vsl'] == 0){
+		echo "Ошибка! Деление на ноль! Введите новое значение.";
+	} 
+	if ($data['formula_q_stvB'] == 0){
+		echo "Ошибка! Деление на ноль! Ведите новое значение.";
+	}
+	if ($data['formula_Vsl-var2'] == 0){
+		echo "Ошибка! Деление на ноль! Введите новое значение.";
+	} 
+	if ($data['formula_q_stvB-var2'] == 0){
+		echo "Ошибка! Деление на ноль! Ведите новое значение.";
+	}
+
 	//1
 
 		if (empty($data['formula_t_ds'])) 	
@@ -209,30 +224,31 @@ class Word{
 			$data['conclusion_form_fire'] = 'прямоугольную форму';
 
 		} else {
-			if( isset( $_POST['gridRadios'] ) )
+			if( isset( $_POST['gridRadios1'] ) )
 			{
-				switch( $_POST['gridRadios'] )
+				switch( $_POST['gridRadios1'] )
 				{
 					case 'circle':
 						$data['fire_area'] = $radius * $radius * $pi;
-						$data['formula_fire_area']='PR^2 = '.$data['formula_R1'].'*'.$data['formula_a_wight'].'=';
+						$data['formula_fire_area']='PR^2 = '.$data['formula_R1'].'^2'.'* 3.14 =';
 						$data['fire_area_round'] = round($data['fire_area'], 2);
 						$data['conclusion_form_fire'] = 'круговую форму';
 						break;
 					case 'semicircle':
 						$data['fire_area'] = ($radius *$radius * $pi) / 2;
-						$data['formula_fire_area']='PR^2/2 = '.$data['formula_R1'].'*'.$data['formula_a_wight'].'=';
+						$data['formula_fire_area']='PR^2/2 = '.'(3.14 * '.$data['formula_R1'].'^2)/2'.'=';
 						$data['fire_area_round'] = round($data['fire_area'], 2);
 						$data['conclusion_form_fire'] = 'форму полукруга';
 						break;
 					case 'angle':
 						$data['fire_area'] = ($radius * $radius * $pi) / 4;
-						$data['formula_fire_area']='PR^2/4 = '.$data['formula_R1'].'*'.$data['formula_a_wight'].'=';
+						$data['formula_fire_area']='PR^2/4 = '.'(3.14 * '.$data['formula_R1'].'^2)/4'.'=';
 						$data['fire_area_round'] = round($data['fire_area'], 2);
 						$data['conclusion_form_fire'] = 'угловую форму';
 						break;	
 				}
 			}
+	
 	
 		}
 	
@@ -303,12 +319,7 @@ class Word{
 	    $data['formula_N_m'] = $data['formula_Q_fact'] / 40 * 0.8; 
 		$data['formula_N_m_ceil'] = ceil($data['formula_N_m']) ;
 	//13
-	/*	if (empty($data['formula_Hh'])) 	
-			$data['formula_Hh']			="пусто";
-		if (empty($data['formula_Hp'])) 	
-			$data['formula_Hp']			="пусто";
-		if (empty($data['formula_S'])) 	
-			$data['formula_S']			="пусто";*/
+	
 		if (empty($data['formula_Zm'])) 	
 			$data['formula_Zm']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_Zst'])) 	
@@ -421,20 +432,21 @@ class Word{
 				switch( $_POST['gridRadios'] )
 				{
 					case 'circle-var2':
+						//$radio = echo'<script> userDecided </script>';
 						$data['fire_area-var2'] = $radius * $radius * $pi;
-						$data['formula_fire_area-var2']='PR^2 = '.$data['formula_R1-var2'].'*'.$data['formula_a_wight-var2'].'=';
-						$data['fire_area_round-var2'] = round($data['fire_area'], 2);
+						$data['formula_fire_area-var2']='PR^2 = '.$data['formula_R1-var2'].'^2'.'* 3.14 =';
+						$data['fire_area_round-var2'] = round($data['fire_area-var2'], 2);
 						$data['conclusion_form_fire-var2'] = 'круговую форму';
 						break;
 					case 'semicircle-var2':
 						$data['fire_area-var2'] = ($radius *$radius * $pi) / 2;
-						$data['formula_fire_area-var2']='PR^2/2 = '.$data['formula_R1-var2'].'*'.$data['formula_a_wight-var2'].'=';
+						$data['formula_fire_area-var2']='PR^2/2 = '.'(3.14 * '.$data['formula_R1-var2'].'^2)/2'.'=';
 						$data['fire_area_round-var2'] = round($data['fire_area-var2'], 2);
 						$data['conclusion_form_fire-var2'] = 'форму полукруга';
 						break;
 					case 'angle-var2':
 						$data['fire_area-var2'] = ($radius * $radius * $pi) / 4;
-						$data['formula_fire_area-var2']='PR^2/4 = '.$data['formula_R1-var2'].'*'.$data['formula_a_wight-var2'].'=';
+						$data['formula_fire_area-var2']='PR^2/4 = '.'(3.14 * '.$data['formula_R1-var2'].'^2)/4'.'=';
 						$data['fire_area_round-var2'] = round($data['fire_area-var2'], 2);
 						$data['conclusion_form_fire-var2'] = 'угловую форму';
 						break;	
@@ -456,15 +468,18 @@ class Word{
 		$data['formula_St_round-var2'] = round($data['formula_St-var2'], 2);
 		
 		if ($data['fire_area_round-var2'] < $data['formula_St-var2']){
+			$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения превышает площадь пожара, следовательно принимаем, что Sт = Sп и будет составлять '.$data['fire_area_round-var2'];
 			$data['fireArea-var2'] = $data['fire_area_round-var2'];
-			$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения превышает площадь пожара, следовательно принимаем, что Sт = Sп и будет составлять '.$data['fire_area_round-var2'];		
+					
 		} else {
 			if($data['fire_area_round-var2'] > $data['formula_St-var2']){
-				$data['fireArea-var2'] = $data['formula_St_round-var2'];
 				$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения меньше площади пожара, следовательно принимаем, что Sт = Sт и будет составлять '.$data['formula_St_round-var2'];
+				$data['fireArea-var2'] = $data['formula_St_round-var2'];
+				
 			} else { 
-				$data['fireArea-var2'] = $data['fire_area_round-var2'];
 				$data['conclusion_fire_area-var2'] = 'Так как, площадь тушения равна площади пожара, следовательно принимаем, что Sт = Sп и будет составлять '.$data['fire_area_round-var2'];
+				$data['fireArea-var2'] = $data['fire_area_round-var2'];
+				
 				
 				
 			}
@@ -510,12 +525,7 @@ class Word{
 	    $data['formula_N_m-var2'] = $data['formula_Q_fact-var2'] / 40 * 0.8; 
 		$data['formula_N_m_ceil-var2'] = ceil($data['formula_N_m-var2']) ;
 	//13
-	/*	if (empty($data['formula_Hh'])) 	
-			$data['formula_Hh']			="пусто";
-		if (empty($data['formula_Hp'])) 	
-			$data['formula_Hp']			="пусто";
-		if (empty($data['formula_S'])) 	
-			$data['formula_S']			="пусто";*/
+	
 		if (empty($data['formula_Zm-var2'])) 	
 			$data['formula_Zm-var2']			="Вы не ввели значение в текстовое поле!";
 		if (empty($data['formula_Zst-var2'])) 	

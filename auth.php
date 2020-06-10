@@ -19,7 +19,7 @@
 	$user = $result->fetch_assoc();
 	//$user = $result -> FETCH_ASSOC();
 	if (count($user) == 0 ) {
-		echo "Taкой пользователь не найден";
+		echo "the password was entered incorrectly";
 		exit();	
 	}
 	
@@ -28,7 +28,6 @@
 session_start();
 setcookie('user', $user['name'], time() + 3600*4, "/");
 
-	
 	
 $mysql->close();
 header('Location: main.php');
